@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital</title>
+    <link rel="stylesheet" href="{% static 'landing/css/styles.css' %}">
+
+    <style>
+        body {
+            background: url("{% static 'landing/images/background-image.png' %}") no-repeat center center fixed;
+            background-size: cover; /* Ensures the image covers the full viewport */
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Capital</div>
+        <nav>
+            <ul>
+                <li><a href="#">Cuentas</a></li>
+                <li><a href="#">¿Por qué Capital?</a></li>
+                <li><a href="#">Seguridad</a></li>
+                <li><a href="#">Experiencia</a></li>
+            </ul>
+        </nav>
+        <button class="contact-button">Login/Regístrate</button>
+    </header>
+    
+    <main>
+        <div class="hero">
+            <h1><span>Banca Moderna</span><br>Diseñada Para Ti.</h1>
+            <button class="cta-button">Comienza aquí</button>
+        </div>        
+
+        <section class="card-section">
+            <div class="card">
+                <div class="card-inner">
+                    <!-- Front Side of the Card -->
+                    <div class="card-front">
+                        <img src="{% static 'landing/images/card-image.png' %}" alt="Card Image">
+                    </div>
+                    <!-- Back Side of the Card -->
+                    <div class="card-back">
+                        Más Información
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <script src="{% static 'landing/js/script.js' %}"></script>
+</body>
+</html>
