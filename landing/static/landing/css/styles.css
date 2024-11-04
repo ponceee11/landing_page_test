@@ -5,38 +5,33 @@
     box-sizing: border-box;
 }
 
-/* Background Image Styling */
 body {
     font-family: Arial, sans-serif;
-    background: url('{% static "landing/images/background-image.png" %}') no-repeat center center fixed;
-    background-size: cover; /* Ensures the image covers the full viewport */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
-
 
 /* Navbar */
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    padding: 20px 0;
-    position: relative;
+    width: 100%;
+    padding: 20px 40px; /* Padding for cleaner layout */
+    background-color: #ffffff; /* Set navbar background to white */
+    color: #333333; /* Dark text color for contrast on white */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
+/* Logo */
+.logo img {
+    height: 40px;
+    width: auto;
+    display: block;
 }
 
+/* Navigation Links */
 .navbar nav ul {
     display: flex;
-    gap: 20px;
+    gap: 30px; /* Increased spacing between links */
 }
 
 .navbar nav ul li {
@@ -45,139 +40,197 @@ body {
 
 .navbar nav ul li a {
     text-decoration: none;
-    color: #ffffff;
-    font-weight: 500;
+    color: #333333; /* Dark text color to contrast with white background */
+    font-weight: 600; /* Bold for emphasis */
+    font-size: 1.1em; /* Slightly larger font size */
+    transition: color 0.3s, border-bottom 0.3s;
+    padding: 5px 0;
+    position: relative;
 }
 
+.navbar nav ul li a:hover {
+    color: #ff8c00; /* Brand color on hover */
+}
+
+/* Optional underline effect on hover */
+.navbar nav ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff8c00;
+    transition: width 0.3s;
+}
+
+.navbar nav ul li a:hover::after {
+    width: 100%; /* Full-width underline on hover */
+}
+
+/* Contact Button */
 .contact-button {
     padding: 10px 20px;
     font-size: 1em;
     color: #ffffff;
-    background-color: #ff8c00; /* Orange color */
+    background-color: #ff8c00;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s;
-    position: absolute;
-    right: 0;
+    margin-right: 20px;
 }
 
 .contact-button:hover {
-    background-color: #ff7700; /* Darker orange on hover */
+    background-color: #ff7700; /* Darker orange for hover */
 }
+
 
 /* Hero Section */
-main {
-    width: 100%;
-    max-width: 800px;
-    text-align: center;
-    margin-top: 50px;
-}
-
-.hero h1 {
-    font-size: 3em;
-    line-height: 1.2;
-    color: #ffffff; /* Set main text color to white */
-}
-
-.hero h1 span {
-    color: #ff8c00; /* Keep the main color as orange */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-}
-
-
-.cta-button {
-    margin-top: 20px;
-    padding: 15px 30px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #333;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: opacity 0.3s;
-}
-
-
-.cta-button:hover {
-    opacity: 0.9;
-}
-
-/* Card Section */
-.card-section {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.card {
-    width: 300px;
-    height: 200px;
+.hero-section {
+    position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease; /* Removed box-shadow transition */
+    display: flex;
+    align-items: center;
+    padding: 50px 20px;
 }
 
-.card img {
+/* Background Image */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 0; /* Ensures no rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: -1;
+    /* Removed opacity for full image clarity */
 }
 
-/* Flip container */
-.card {
-    perspective: 1000px; /* Adds depth for the 3D effect */
-    opacity: 0; /* Starts hidden for fade-in on load */
-    animation: fadeInUp 1s ease forwards;
-    animation-delay: 0.2s;
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Flip animation */
-.card-inner {
+/* Hero Content Layout */
+.hero-content {
     position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d; /* Enables 3D effect */
-    transition: transform 0.6s;
-}
-
-.card:hover .card-inner {
-    transform: rotateY(180deg); /* Flips 180 degrees on hover */
-}
-
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden; /* Hides the back when flipped */
-}
-
-.card-front {
-    /* Front side styling */
-}
-
-.card-back {
-    /* Back side styling (for now we’ll keep it blank or add a background color) */
-    transform: rotateY(180deg); /* Positioned on the opposite side */
-    background-color: #f8f8f8;
     display: flex;
+    justify-content: flex-start; /* Align items to the start (left) */
     align-items: center;
-    justify-content: center;
-    color: #333;
-    font-size: 1.2em;
-    font-weight: bold;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px; /* Padding for layout spacing */
+}
+
+/* Text Box on the Left */
+.hero-text {
+    flex: 1;
+    background-color: #ffffff; /* Solid background color for readability */
+    color: #333333;
+    padding: 30px;
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    max-width: 500px; /* Limit width of text box */
+    text-align: left; /* Align text to the left within the box */
+}
+
+/* Optional: Adjust Text Styling */
+.hero-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #333333;
+}
+
+.hero-text p.subtitle {
+    font-size: 1.3em;
+    color: #666666;
+    margin-bottom: 20px;
 }
 
 
+.hero-text p.subtitle {
+    font-size: 1.3em;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option-link {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #ff8c00;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.option-link:hover {
+    color: #ff7700; /* Darker orange on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+
+
+/* Divider to separate sections */
+.divider {
+    height: 10px; /* Reduced height from 20px to 10px to make it thinner */
+    background-color: #ffffff;
+    margin: 5px 0; /* Adjusted margin to control spacing around it */
+}
+
+
+/* Importante Section */
+.important-section {
+    background: linear-gradient(135deg, #ffffff, #ffffff); /* Subtle gradient for a modern look */
+    padding: 40px 30px;
+    color: #333;
+    text-align: center;
+    border-radius: 10px; /* Soft rounded corners for a modern touch */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    max-width: 800px;
+    margin: 30px auto; /* Center align and set a max width */
+}
+
+.important-section h2 {
+    color: #ff8c00;
+    font-size: 2.5em; /* Larger font size for emphasis */
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.important-section h3 {
+    color: #ff8c00;
+    font-size: 1.5em;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.important-section p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #666;
+    margin: 15px 0;
+}
+
+.important-section strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Contact Information Styling */
+.important-section p.contact-info {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #444;
+}
+
+.important-section .icon {
+    font-size: 1.5em;
+    color: #ff8c00;
+    vertical-align: middle;
+    margin-right: 5px;
+}

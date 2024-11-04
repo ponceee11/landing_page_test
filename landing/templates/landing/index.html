@@ -7,17 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capital</title>
     <link rel="stylesheet" href="{% static 'landing/css/styles.css' %}">
-
-    <style>
-        body {
-            background: url("{% static 'landing/images/background-image.png' %}") no-repeat center center fixed;
-            background-size: cover; /* Ensures the image covers the full viewport */
-        }
-    </style>
 </head>
 <body>
     <header class="navbar">
-        <div class="logo">Capital</div>
+        <div class="logo">
+            <img src="{% static 'landing/images/logo-capital.png' %}" alt="Capital Logo">
+        </div>
         <nav>
             <ul>
                 <li><a href="#">Cuentas</a></li>
@@ -29,29 +24,43 @@
         <button class="contact-button">Login/Regístrate</button>
     </header>
     
-    <main>
-        <div class="hero">
-            <h1><span>Banca Moderna</span><br>Diseñada Para Ti.</h1>
-            <button class="cta-button">Comienza aquí</button>
-        </div>        
-
-        <section class="card-section">
-            <div class="card">
-                <div class="card-inner">
-                    <!-- Front Side of the Card -->
-                    <div class="card-front">
-                        <img src="{% static 'landing/images/card-image.png' %}" alt="Card Image">
-                    </div>
-                    <!-- Back Side of the Card -->
-                    <div class="card-back">
-                        Más Información
-                    </div>
+    <!-- Hero Section with Background Image -->
+    <main class="hero-section">
+        <img src="{% static 'landing/images/background-image.png' %}" alt="Background Image" class="background-image">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Soluciones Financieras</h1>
+                <p class="subtitle">Selecciona el Crédito adecuado a tu perfil:</p>
+                <div class="options">
+                    <a href="#" class="option-link">Personas</a>
+                    <a href="#" class="option-link">Empresas</a>
+                    <a href="#" class="option-link">Físicas con Actividad Empresarial</a>
                 </div>
             </div>
-        </section>
-
-        
+            <!-- <img src="{% static 'landing/images/loan.png' %}" alt="Loan Image" class="hero-image"> -->
+        </div>
     </main>
+    
+
+    <!-- Divider Section for Separation -->
+    <div class="divider"></div>
+
+    <!-- Separate Importante Section with White Background -->
+    <section class="important-section">
+        <h2>¡IMPORTANTE!</h2>
+        <h3>Advertencia al público, usuarios y clientes:</h3>
+        <p>
+            Capital a tu Favor S.A. de C.V. SOFOM ENR (CTF), bajo ningún concepto solicitará a sus clientes, dinero o pagos por adelantado, como requisito o condición, para autorizar, entregar o garantizar un préstamo o financiamiento; por favor cualquier situación inusual, reportarla por los siguientes medios:
+        </p>
+        <p class="contact-info">
+            <span class="icon">📞</span>Teléfono: 55 6478 6675 / 55 5122 7559<br>
+            <span class="icon">✉️</span>Correo: contacto@capitalatufavor.mx
+        </p>
+        <p>
+            O bien, directamente a las oficinas de la Comisión Nacional para la Protección y Defensa de los Usuarios de Servicios Financieros (CONDUSEF), ubicada en Avenida Insurgentes Sur, número 762, Colonia del Valle, C.P. 03100, CDMX o a los teléfonos: (55) 5340 0999 y 800 999 8080 o en la página www.condusef.gob.mx
+        </p>
+    </section>
+    
 
     <script src="{% static 'landing/js/script.js' %}"></script>
 </body>
